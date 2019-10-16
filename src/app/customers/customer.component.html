@@ -1,0 +1,236 @@
+<div class="card">
+  <div class="card-header">
+    <h2 class="lead">Sign Up!</h2>
+  </div>
+  <div class="card-body">
+    <form #customerForm="ngForm" (ngSubmit)="save()" novalidate>
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-2">
+            <label for="firstNameId">First Name:</label>
+          </div>
+          <div class="col-md-8">
+            <input
+              id="firstNameId"
+              type="text"
+              class="form-control"
+              placeholder="First Name(required)"
+              name="firstName"
+              #firstNameVar="ngModel"
+              [(ngModel)]="customer.firstName"
+              [ngClass]="{
+                'is-invalid':
+                  (firstNameVar.touched || firstNameVar.dirty) &&
+                  !firstNameVar.valid
+              }"
+              required
+              minlength="4"
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="firstNameVar.errors?.required">
+                First Name is required
+              </span>
+              <span *ngIf="firstNameVar.errors?.minlength">
+                First Name should be a minimum of 4 characters
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-2">
+            <label for="lastNameId">Last Name: </label>
+          </div>
+          <div class="col-md-8">
+            <input
+              id="lastNameId"
+              type="text"
+              class="form-control"
+              placeholder="Last Name(required)"
+              name="lastName"
+              #lastNameVar="ngModel"
+              [(ngModel)]="customer.lastName"
+              [ngClass]="{
+                'is-invalid':
+                  (lastNameVar.touched || lastNameVar.dirty) &&
+                  !lastNameVar.valid
+              }"
+              required
+              minlength="4"
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="lastNameVar.errors?.required">
+                Last Name is required
+              </span>
+              <span *ngIf="lastNameVar.errors?.minlength">
+                Last Name should be a minimum of 4 characters
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-2">
+            <label for="emailId">Email: </label>
+          </div>
+          <div class="col-md-8">
+            <input
+              id="emailId"
+              type="email"
+              class="form-control"
+              placeholder="Email(required)"
+              name="email"
+              #emailVar="ngModel"
+              [(ngModel)]="customer.email"
+              [ngClass]="{
+                'is-invalid':
+                  (emailVar.touched || emailVar.dirty) && !emailVar.valid
+              }"
+              required
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="emailVar.errors?.required">
+                Email is required
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-8">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="toggleDisplay"
+                id="checkboxToggle"
+                name="toggleDisplay"
+                #toggleDisplay="ngModel"
+                ngModel
+              />
+              <label class="form-check-label" for="checkboxToggle">
+                Subscribe to our newsletter
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <div *ngIf="toggleDisplay.value">
+        <div class="form-row justify-content-center">
+          <div class="col-md-8">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-2">
+                  <label for="firstNameId">First Name:</label>
+                </div>
+                <div class="col-md-8">
+                  <input
+                    id="firstNameId"
+                    type="text"
+                    class="form-control"
+                    placeholder="First Name(required)"
+                    name="firstName"
+                    #firstNameVar="ngModel"
+                    [(ngModel)]="customer.firstName"
+                    [ngClass]="{
+                      'is-invalid':
+                        (firstNameVar.touched || firstNameVar.dirty) &&
+                        !firstNameVar.valid
+                    }"
+                    required
+                    minlength="4"
+                  />
+                  <span class="invalid-feedback">
+                    <span *ngIf="firstNameVar.errors?.required">
+                      First Name is required
+                    </span>
+                    <span *ngIf="firstNameVar.errors?.minlength">
+                      First Name should be a minimum of 4 characters
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-2">
+                  <label for="lastNameId">Last Name: </label>
+                </div>
+                <div class="col-md-8">
+                  <input
+                    id="lastNameId"
+                    type="text"
+                    class="form-control"
+                    placeholder="Last Name(required)"
+                    name="lastName"
+                    #lastNameVar="ngModel"
+                    [(ngModel)]="customer.lastName"
+                    [ngClass]="{
+                      'is-invalid':
+                        (lastNameVar.touched || lastNameVar.dirty) &&
+                        !lastNameVar.valid
+                    }"
+                    required
+                    minlength="4"
+                  />
+                  <span class="invalid-feedback">
+                    <span *ngIf="lastNameVar.errors?.required">
+                      Last Name is required
+                    </span>
+                    <span *ngIf="lastNameVar.errors?.minlength">
+                      Last Name should be a minimum of 4 characters
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-2">
+                  <label for="emailId">Email: </label>
+                </div>
+                <div class="col-md-8">
+                  <input
+                    id="emailId"
+                    type="email"
+                    class="form-control"
+                    placeholder="Email(required)"
+                    name="email"
+                    #emailVar="ngModel"
+                    [(ngModel)]="customer.email"
+                    [ngClass]="{
+                      'is-invalid':
+                        (emailVar.touched || emailVar.dirty) && !emailVar.valid
+                    }"
+                    required
+                  />
+                  <span class="invalid-feedback">
+                    <span *ngIf="emailVar.errors?.required">
+                      Email is required
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+    </form>
+  </div>
+</div>
+
+<p>Pristine: {{ customerForm.pristine }}</p>
+<p>Dirty: {{ customerForm.dirty }}</p>
+<p>touched: {{ customerForm.touched }}</p>
+<p>valid: {{ customerForm.valid }}</p>
+<p>Data: {{ customerForm.value | json }}</p>
